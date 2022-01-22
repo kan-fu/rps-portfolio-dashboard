@@ -76,13 +76,25 @@ export default function Chart({
 
   const palette = page === 'stock' ? PALETTE20 : PALETTE12
 
+  let commision : number
+  switch (type) {
+    case 'cn':
+      commision = 0.00126
+      break
+    case 'us':  // Not sure about US stock market
+      commision = 0.00126
+      break
+    default:  // ETF
+      commision = 0.0002
+  }
+
   const setTopBotCum = (
     newPctChangestoShow: (ETFPctChangeBot | ETFPctChangeTop | StockPctChange)[]
   ) => {
     setPctChangesToShow(newPctChangestoShow)
-    const newCumPctReturns = calCumPctReturns(newPctChangestoShow)
+    const newCumPctReturns = calCumPctReturns(newPctChangestoShow, commision)
     setCumPctReturns(newCumPctReturns)
-    const summaries = calSummary(newPctChangestoShow)
+    const summaries = calSummary(newPctChangestoShow, commision)
     // Sort by accumulated returns
     const latestCumPctChange = Object.entries(
       newCumPctReturns[newCumPctReturns.length - 1]

@@ -5,12 +5,13 @@ import {
   Summaries,
 } from './types'
 
-const commision = 0.00126
+// const commision = 0.00126
 export const range = (start: number, stop: number, step = 1) =>
   Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step)
 
 export const calCumPctReturns = (
-  pctChanges: (ETFPctChangeBot | ETFPctChangeTop | StockPctChange)[]
+  pctChanges: (ETFPctChangeBot | ETFPctChangeTop | StockPctChange)[],
+  commision: number
 ) => {
   const cumPctReturns: (ETFPctChangeBot | ETFPctChangeTop | StockPctChange)[] =
     []
@@ -50,7 +51,7 @@ const convertFormat = (
     {}
   )
 }
-const calSharpe = (array: Array<number>) => {
+const calSharpe = (array: Array<number>, commision: number) => {
   const n = array.length
   const mean = array.reduce((a, b) => a + b) / n
   const std = Math.sqrt(
@@ -87,7 +88,7 @@ const maxDrawdown = (equityCurve: Array<number>) => {
   return [maxDd, idxStartMaxDd, idxEndMaxDd]
 }
 
-const calMDD = (array: Array<number>, dates: string[]) => {
+const calMDD = (array: Array<number>, dates: string[], commision: number) => {
   const equityCurve = array.reduce((preV: Array<number>, curV) => {
     preV.length
       ? preV.push(preV[preV.length - 1] * (curV + 1 - 0))
@@ -102,7 +103,7 @@ const calMDD = (array: Array<number>, dates: string[]) => {
   }
 }
 
-const calReturn = (array: Array<number>) => {
+const calReturn = (array: Array<number>, commision: number) => {
   const n = array.length
   const cumlativePctChange = array.reduce(
     (preV, curV) => preV * (curV + 1 - commision),
@@ -115,16 +116,17 @@ const calReturn = (array: Array<number>) => {
 }
 
 export const calSummary = (
-  pctChanges: (ETFPctChangeBot | ETFPctChangeTop | StockPctChange)[]
+  pctChanges: (ETFPctChangeBot | ETFPctChangeTop | StockPctChange)[],
+  commision: number
 ) => {
   const convertedPctChanges = convertFormat(pctChanges)
   const dates = pctChanges.map((pct) => pct.date)
   const summary: Summaries = {}
   for (const key in convertedPctChanges) {
     summary[key] = {
-      ...calSharpe(convertedPctChanges[key]),
-      ...calReturn(convertedPctChanges[key]),
-      ...calMDD(convertedPctChanges[key], dates),
+      ...calSharpe(convertedPctChanges[key], commision),
+      ...calReturn(convertedPctChanges[key], commision),
+      ...calMDD(convertedPctChanges[key], dates, commision),
     }
   }
   return summary
