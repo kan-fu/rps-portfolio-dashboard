@@ -46,53 +46,53 @@ export const query = graphql`
         date
         rps120_1
         rps120_250_1
-        rps120_250_3
-        rps120_3
+        rps120_250_2
+        rps120_2
         rps250_1
-        rps250_3
+        rps250_2
         rps50_1
-        rps50_3
+        rps50_2
         rps5_1
-        rps5_3
+        rps5_2
       }
       etfPortfolioBot: etfPortfolio(type: "bot") {
         date
         rps120_1
-        rps120_3
+        rps120_2
         rps250_1
-        rps250_3
+        rps250_2
         rps50_1
-        rps50_3
+        rps50_2
         rps5_1
-        rps5_3
+        rps5_2
         rps5_50_1
-        rps5_50_3
+        rps5_50_2
       }
       etfPctChangesTop: etfPctChanges(type: "top") {
         date
         rps120_1
         rps120_250_1
-        rps120_250_3
-        rps120_3
+        rps120_250_2
+        rps120_2
         rps250_1
-        rps250_3
+        rps250_2
         rps50_1
-        rps50_3
+        rps50_2
         rps5_1
-        rps5_3
+        rps5_2
       }
       etfPctChangesBot: etfPctChanges(type: "bot") {
         date
         rps120_1
-        rps120_3
+        rps120_2
         rps250_1
-        rps250_3
+        rps250_2
         rps50_1
-        rps50_3
+        rps50_2
         rps5_1
-        rps5_3
+        rps5_2
         rps5_50_1
-        rps5_50_3
+        rps5_50_2
       }
     }
   }

@@ -48,16 +48,16 @@ export const PALETTE12: {
   [key: string]: string
 } = {
   rps250_1: '#1f77b4',
-  rps250_3: '#ff7f0e',
+  rps250_2: '#ff7f0e',
   rps120_1: '#2ca02c',
-  rps120_3: '#d62728',
+  rps120_2: '#d62728',
   rps50_1: '#9467bd',
-  rps50_3: '#8c564b',
+  rps50_2: '#8c564b',
   rps5_1: '#e377c2',
-  rps5_3: '#7f7f7f',
+  rps5_2: '#7f7f7f',
   rps5_50_1: '#bcbd22',
-  rps5_50_3: '#17becf',
+  rps5_50_2: '#17becf',
   rps120_250_1: '#1f77b4',
-  rps120_250_3: '#ff7f0e',
+  rps120_250_2: '#ff7f0e',
 }
 export const API_URL = 'https://rps-portfolio.herokuapp.com'

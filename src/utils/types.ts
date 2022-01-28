@@ -92,42 +92,42 @@ export interface StockPortfolio extends Portfolio {
 
 interface ETFPctChange extends PctChange {
   rps120_1: number
-  rps120_3: number
+  rps120_2: number
   rps250_1: number
-  rps250_3: number
+  rps250_2: number
   rps50_1: number
-  rps50_3: number
+  rps50_2: number
   rps5_1: number
-  rps5_3: number
+  rps5_2: number
 }
 
 export interface ETFPctChangeTop extends ETFPctChange {
   rps120_250_1: number
-  rps120_250_3: number
+  rps120_250_2: number
 }
 
 export interface ETFPctChangeBot extends ETFPctChange {
   rps5_50_1: number
-  rps5_50_3: number
+  rps5_50_2: number
 }
 
 interface ETFPortfolio extends Portfolio{
   rps120_1: string
-  rps120_3: string
+  rps120_2: string
   rps250_1: string
-  rps250_3: string
+  rps250_2: string
   rps50_1: string
-  rps50_3: string
+  rps50_2: string
   rps5_1: string
-  rps5_3: string
+  rps5_2: string
 }
 
 export interface ETFPortfolioTop extends ETFPortfolio {
   rps120_250_1: string
-  rps120_250_3: string
+  rps120_250_2: string
 }
 
 export interface ETFPortfolioBot extends ETFPortfolio {
   rps5_50_1: string
-  rps5_50_3: string
+  rps5_50_2: string
 }
