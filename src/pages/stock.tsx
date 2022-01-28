@@ -1,9 +1,8 @@
 import React from 'react'
 import Dashboard from '../components/Dashboard'
-import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { StockPortfolio, StockPctChange } from '../utils/types'
-
+import SEO from '../components/SEO'
 interface dataProps {
   rps: {
     stockPortfolioUS: StockPortfolio
@@ -21,7 +20,7 @@ const Stock = ({ data }: { data: dataProps }) => {
     type === 'cn' ? data.rps.stockPctChangesCN : data.rps.stockPctChangesUS
   return (
     <div>
-      <Helmet title='RPS | Stock' />
+      <SEO link='https://rps-portfolio.netlify.app/stock' title='RPS | STOCK' />
       <Dashboard
         page='stock'
         type={type}

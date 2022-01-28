@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import SEO from '../components/SEO'
 import Dashboard from '../components/Dashboard'
 import { graphql } from 'gatsby'
 import {
@@ -26,7 +26,8 @@ const ETF = ({ data }: { data: dataProps }) => {
     type === 'top' ? data.rps.etfPctChangesTop : data.rps.etfPctChangesBot
   return (
     <div>
-      <Helmet title='RPS | ETF' />
+      <SEO link='https://rps-portfolio.netlify.app/etf' title='RPS | ETF' />
+
       <Dashboard
         page='etf'
         type={type}
